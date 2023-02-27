@@ -5,6 +5,7 @@ import Map from './Map';
 
 function App() {
   const [didSubmit, setDidSubmit] = useState(false);
+  const [matches, setMatches] = useState(null)
 
   const handleClick = () => {
     setDidSubmit(!didSubmit);
@@ -17,12 +18,12 @@ function App() {
       <div className="card">
         {!didSubmit ?
         <div>
-          <UserForm></UserForm>
-          <button onClick={handleClick}>Find my stars</button>
+          <UserForm didSubmit={didSubmit} setDidSubmit={setDidSubmit} setMatches={setMatches}></UserForm>
+          {/* <button onClick={handleClick}>Find my stars</button> */}
         </div>
         : 
         <div>
-          <Map></Map>
+          <Map matches={matches}></Map>
           <button onClick={handleClick}>Search again</button>
         </div>
         }

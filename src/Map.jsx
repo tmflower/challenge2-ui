@@ -1,6 +1,10 @@
-function Map() {
+function Map({matches}) {
     return(
-        <h2>Map goes here</h2>
+        <div>
+            <h2>Map goes here</h2>
+            {matches.map(match => match.properties.name)}
+        </div>
+
     )
 }
 
