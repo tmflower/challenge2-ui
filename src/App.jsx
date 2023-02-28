@@ -18,12 +18,11 @@ function App() {
       <div className="card">
         {!didSubmit ?
         <div>
-          <UserForm didSubmit={didSubmit} setDidSubmit={setDidSubmit} setMatches={setMatches}></UserForm>
-          {/* <button onClick={handleClick}>Find my stars</button> */}
+          <UserForm setDidSubmit={setDidSubmit} setMatches={setMatches}></UserForm>
         </div>
         : 
         <div>
-          <Map matches={matches}></Map>
+          <Map matches={matches} setMatches={setMatches}></Map>
           <button onClick={handleClick}>Search again</button>
         </div>
         }

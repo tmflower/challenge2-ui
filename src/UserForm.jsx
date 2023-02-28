@@ -1,40 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-function UserForm({didSubmit, setDidSubmit, setMatches}) {
+function UserForm({setDidSubmit, setMatches}) {
     const initialState = {
-        "favColor": null,
-        "distance": null,
-        "origin": null,
-        "minAge": null,
-        "maxAge": null
+        "favColor": '',
+        "dist": '',
+        "origin": '',
+        "minAge": '',
+        "maxAge": ''
     }
 
     const [formData, setFormData] = useState(initialState);
-    const [cleanedData, setCleanedData] = useState({});
-
-    const { favColor, distance, origin, minAge, maxAge } = formData;
+    const { favColor, dist, origin, minAge, maxAge } = formData;
 
     const handleChange = (evt) => {
         const { name, value } = evt.target;
         setFormData(formData => ({...formData, [name]: value}));
     }
 
-    const cleanFormData = () => {
-        // const cleaned = Object.entries(formData).filter((value) => value !== null)
-        const dataArr = Object.entries(formData);
-        const cleaned = dataArr.filter(data => data[1] !== null);
-        // console.log("cleanedFormData", cleaned);
-        const dataObj = Object.fromEntries(cleaned); console.log("dataObj", dataObj)
-        setFormData(dataObj); console.log("cleaned data", cleanedData)
-    }
-
     const handleSubmit = async(evt) => {
         evt.preventDefault();
-        cleanFormData();
-        const queryString = new URLSearchParams(formData).toString(); console.log(queryString)
+        let queryString = new URLSearchParams(formData).toString(); 
         const res = await axios.get(`http://localhost:3001/users?${queryString}`);
-        console.log(res)
         setMatches(res.data.results);
         setDidSubmit(true);
     }
@@ -52,12 +39,12 @@ function UserForm({didSubmit, setDidSubmit, setMatches}) {
                 onChange={handleChange}
                 placeholder="green">
             </input>
-            <label htmlFor="distance">Maximum miles from you: </label>
+            <label htmlFor="dist">Maximum miles from you: </label>
             <input
                 type="text"
-                id={distance}
-                name="distance"
-                value={distance}
+                id={dist}
+                name="dist"
+                value={dist}
                 onChange={handleChange}
                 placeholder="20">
             </input>
@@ -90,7 +77,6 @@ function UserForm({didSubmit, setDidSubmit, setMatches}) {
             </input>
             <button type="submit">Find my stars</button>
         </form>
-        {/* {didSubmit ? matches.map(match => match.properties.name) : null} */}
         </div>
     )
 }
