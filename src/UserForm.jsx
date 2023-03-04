@@ -28,54 +28,54 @@ function UserForm({setDidSubmit, setMatches}) {
 
     return(
         <div>
-        <h2>Form goes here</h2>
+        <h2>Who do you want to find?</h2>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="favColor">Favorite Color: </label>
+            <label htmlFor="favColor">Stars who share my favorite color: </label>
             <input
                 type="text"
                 id={favColor}
                 name="favColor"
                 value={favColor}
                 onChange={handleChange}
-                placeholder="green">
+                placeholder="enter your favorite color">
             </input>
-            <label htmlFor="dist">Maximum miles from you: </label>
-            <input
-                type="text"
-                id={dist}
-                name="dist"
-                value={dist}
-                onChange={handleChange}
-                placeholder="20">
-            </input>
-            <label htmlFor="origin">Your location in lat/long coordinates: </label>
-            <input
-                type="text"
-                id={origin}
-                name="origin"
-                value={origin}
-                onChange={handleChange}
-                placeholder="-122.419416, 37.774929">
-            </input>
-            <label htmlFor="minAge">Minimum age: </label>
+            <label htmlFor="minAge">Stars who are at least this old: </label>
             <input
                 type="text"
                 id={minAge}
                 name="minAge"
                 value={minAge}
                 onChange={handleChange}
-                placeholder="25">
+                placeholder="enter the minimum age of stars you want to find">
             </input>
-            <label htmlFor="maxAge">Maximum age: </label>
+            <label htmlFor="maxAge">Stars who are no older than: </label>
             <input
                 type="text"
                 id={maxAge}
                 name="maxAge"
                 value={maxAge}
                 onChange={handleChange}
-                placeholder="100">
+                placeholder="enter the maximum age of stars you want to find">
             </input>
-            <button type="submit">Find my stars</button>
+            <label htmlFor="dist">Stars who are no more than this many miles from me: </label>
+            <input
+                type="text"
+                id={dist}
+                name="dist"
+                value={dist}
+                onChange={handleChange}
+                placeholder="enter the maximum distance of the location of stars you want to find">
+            </input>
+            <label htmlFor="origin">My lat/long coordinates: </label>
+            <input
+                type="text"
+                id={origin}
+                name="origin"
+                value={origin}
+                onChange={handleChange}
+                placeholder="enter the latitude and longitude coordinates of your location">
+            </input>
+            <button type="submit" className="btn">Find my stars</button>
         </form>
         </div>
     )

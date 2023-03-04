@@ -5,6 +5,20 @@
   text-align: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+input {
+  margin-bottom: 1.5em;
+}
+
 .card {
   padding: 2em;
+}
+
+.btn {
+  margin: 1em;
 }
