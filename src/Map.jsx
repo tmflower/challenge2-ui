@@ -1,22 +1,17 @@
-import {useState, useEffect} from "react";
 
-function Map({matches, setMatches}) {
-    const [names, setNames] = useState([]);
-    useEffect(() => async function removeDuplicates() {
-        const unique = [];
-        matches.forEach(match => {
-            if (!unique.includes(match.properties.name)) {
-                unique.push(match.properties.name);
-            }
-        });
-        setNames(unique);
-    },[]);
+
+function Map({matches}) {
 
     return(
         <div>
-            <h2>Map goes here</h2>
-            <h3>Here's who we found for you:</h3>
-            {names.map((name, i) => <p key={i}>{name}</p>)}
+            {matches.length !== 0 ?
+            <div>
+                <h3>Here's who we found for you:</h3>
+                {matches.map((match, i) => <p key={i}>{match.properties.name}</p>)}
+            </div>
+            :
+            <h3>😞 Sorry, we couldn't find any matching stars for you today.</h3>
+            }
         </div>
 
     )
@@ -25,7 +20,3 @@ function Map({matches, setMatches}) {
 export default Map;
 
         /**  https://leafletjs.com/examples/geojson/)*/
-
-        /**arr.filter((item, 
-            index) => arr.indexOf(item) === index);
-    } */
