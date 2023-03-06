@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.leaflet-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* #map {
+  height: 180px;
+} */
+
 form {
   display: flex;
   flex-direction: column;

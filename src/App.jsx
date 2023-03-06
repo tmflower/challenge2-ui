@@ -5,7 +5,7 @@ import Map from './Map';
 
 function App() {
   const [didSubmit, setDidSubmit] = useState(false);
-  const [matches, setMatches] = useState(null)
+  const [matches, setMatches] = useState(null);
 
   const handleClick = () => {
     setDidSubmit(!didSubmit);
