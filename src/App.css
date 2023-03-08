@@ -3,16 +3,16 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
 }
 
 .leaflet-container {
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
 }
-
-/* #map {
-  height: 180px;
-} */
 
 form {
   display: flex;

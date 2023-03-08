@@ -22,8 +22,8 @@ function App() {
         </div>
         : 
         <div>
-          <Map matches={matches} setMatches={setMatches}></Map>
           <button onClick={handleClick}>Search again</button>
+          <Map matches={matches} setMatches={setMatches}></Map>          
         </div>
         }
       </div>
