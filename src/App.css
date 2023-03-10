@@ -31,3 +31,7 @@ input {
 .btn {
   margin: 1em;
 }
+
+.listItem {
+  list-style: none;
+}

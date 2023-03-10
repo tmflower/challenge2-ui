@@ -1,13 +1,23 @@
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 
+// Still have one problem with rendering: Los Angeles should appear twice but only does once, why?
 function Map({matches}) {
-    const locations = matches.map(match => match.locationHistory.features);
+   
+    const center = [37.7749, -122.4194]; 
 
-    const coordinates = locations[0].map(location => location.geometry.coordinates);
+    const myMatches = matches.map(match => {
+        const matchData = {};
 
-    const center = coordinates[0];
-console.log(matches)
+        matchData['name'] = match.properties.name;
+        matchData['age'] = match.properties.age;
+        matchData['color'] = match.properties.favColor;
+        matchData['cities'] = match.locationHistory.features.map(feature => feature.properties.city);
+        matchData['coords'] = match.locationHistory.features.map(feature => feature.geometry.coordinates);
+
+        return matchData;
+    });
+
     return(
         <div>
             {!matches.length  ?
@@ -16,22 +26,24 @@ console.log(matches)
             <div>
                 <h3>Here's who we found for you:</h3>
                 {matches.map((match, i) => <p key={i}>{match.properties.name}</p>)}
-                {/* {coordinates.map(coordinate =>  */}
                 <MapContainer center={center} zoom={6} scrollWheelZoom={false}>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {coordinates.map((coordinate, i) => 
-                    <Marker position={coordinate} key={i}>
+                    {myMatches.map((match) => match.coords.map(coord =>
+                    <Marker position={coord} key={coord}>
                         <Popup>
-                            {matches.map(match =>  match.properties.name)} <br />
-                            Age: {matches.map(match => match.properties.age)} <br />
-                            Favorite color: {matches.map(match => match.properties.fav_color)}
+                            {match.name} <br />
+                            Age: {match.age} <br />
+                            Favorite color: {match.favColor} <br />
+                            Last seen in: 
+                                <ul>
+                                    <li className="listItem">{match.cities.map((city, i) => <p key={i}>{city}</p>)}</li>
+                                </ul>
                         </Popup>
-                    </Marker>)}                   
+                    </Marker>))}
             </MapContainer>
-            {/* )} */}
           </div>}
         </div>
     )
