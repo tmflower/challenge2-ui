@@ -3,8 +3,8 @@ import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 
 // Still have one problem with rendering: Los Angeles should appear twice but only does once, why?
 function Map({matches}) {
-   
-    const center = [37.7749, -122.4194]; 
+
+    const center = [37.7749, -122.4194];
 
     const myMatches = matches.map(match => {
         const matchData = {};
@@ -37,7 +37,7 @@ function Map({matches}) {
                             {match.name} <br />
                             Age: {match.age} <br />
                             Favorite color: {match.favColor} <br />
-                            Last seen in: 
+                            Last seen in:
                                 <ul>
                                     <li className="listItem">{match.cities.map((city, i) => <p key={i}>{city}</p>)}</li>
                                 </ul>

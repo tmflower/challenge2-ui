@@ -12,3 +12,6 @@ https://english.elpais.com/culture/2022-07-24/emilia-clarke-with-the-amount-of-m
 
 Chris Martin:
 https://www.eonline.com/news/1363949/chris-martin-makes-rare-appearance-at-2023-grammys-after-serious-lung-infection
+
+Wallpaper:
+Image by <a href="https://pixabay.com/users/905513-905513/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1357993">Mary Pahlke</a> from <a href="https://pixabay.com//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1357993">Pixabay</a>

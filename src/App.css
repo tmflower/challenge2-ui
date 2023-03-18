@@ -1,12 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+
+body {
+	background-image: url('./assets/wallpaper.png');
+	background-size: 100%;
+	font-family: 'Paytone One', sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-
   align-items: center;
+}
+
+h1 {
+	color: white;
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 3em;
+}
+
+p {
+	font-size: 1.5em;
 }
 
 .leaflet-container {
@@ -17,11 +37,17 @@
 form {
   display: flex;
   flex-direction: column;
-  text-align: left;
+	font-size: 1.5em;
+	align-items: center;
 }
 
 input {
   margin-bottom: 1.5em;
+	font-size: 1em;
+	padding: .5em;
+	border: none;
+	border-radius: 25px;
+	width: 50%;
 }
 
 .card {
@@ -35,3 +61,29 @@ input {
 .listItem {
   list-style: none;
 }
+
+.taylor {
+	width: 20%;
+	transform: rotate(15deg);
+}
+
+.chris {
+	width: 12%;
+	transform: rotate(-10deg);
+}
+
+.emilia {
+	width: 18%;
+	transform: rotate(5deg);
+}
+
+.idris {
+	width: 25%;
+	transform: rotate(-5deg);
+}
+
+.emma {
+	width: 10%;
+	transform: rotate(10deg);
+}
+
